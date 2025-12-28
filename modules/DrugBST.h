@@ -27,7 +27,7 @@ private:
     bool searchById(Drug *node, int id);
     void inorder(Drug *node);
     void inorderToFile(Drug *node, ofstream &out);
-
+    int countNodes(Drug *node);//added
 public:
     DrugBST();
     void addDrug(string name, int id, int quantity, string expiryDate);
@@ -36,7 +36,8 @@ public:
     void discard(string expiry);
     void displayDrugs();
     void exportToFile(const string &filename);
-    void importFromFile(const string &filename);
+    void importFromFile(const string &filename); 
+    int getDrugTypeCount();//added
 };
 
 #endif

@@ -11,17 +11,24 @@ int main()
     dr.importFromFile("drugs.csv");
     pq.importFromFile("patients.csv");
 
-    // Added drugs
-    dr.addDrug("iboprofien1", 01, 10, "01-01-2026");
-    dr.addDrug("paracetamol1", 02, 20, "01-02-2026");
+    // Added drugs 
+    dr.addDrug("Ibuprofen", 01, 10, "01-01-2026");
+    dr.addDrug("Paracetamol", 02, 20, "01-02-2026");
     dr.displayDrugs();
 
     // patients added
-    pq.enqueue(3, "Mary");
-    pq.enqueue(4, "James");
+    pq.enqueue(1, "Abel");
+    pq.enqueue(2, "Hanna");
+    pq.enqueue(3, "Abebe");
+    pq.enqueue(4, "Selam");
     pq.display();
 
     // Export current data to files
     dr.exportToFile("drugs.csv");
     pq.exportToFile("patients.csv");
+
+    // Print totals
+    cout << "Total number of drugs: " << dr.getDrugTypeCount() << endl;
+    cout << "Total patients registered: " << pq.getPatientCount() << endl;
+
 }
