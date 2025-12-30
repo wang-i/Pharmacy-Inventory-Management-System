@@ -3,6 +3,7 @@
 #include <string>
 
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -28,12 +29,11 @@ private:
     bool searchById(Drug *node, int id);
     void inorder(Drug *node);
     void inorderToFile(Drug *node, ofstream &out);
-<<<<<<< HEAD
-    int countNodes(Drug *node);//added
-=======
+    int countNodes(Drug *node);
     void clear(Drug *node);
+    void collectValidDrugs(Drug *node, vector<Drug> &valid, const string &today);
 
->>>>>>> a4747e7551a9a98f33b7ea16730038613cf45bb8
+
 public:
     DrugBST();
     void addDrug(string name, int id, int quantity, string expiryDate);
@@ -41,14 +41,11 @@ public:
     void findDrugId(int id);
     void displayDrugs();
     void exportToFile(const string &filename);
-<<<<<<< HEAD
     void importFromFile(const string &filename); 
-    int getDrugTypeCount();//added
-=======
-    void importFromFile(const string &filename);
+    int getDrugTypeCount();
     void clearTree();
     void discardExpiredFromCSV(const string &filename);
->>>>>>> a4747e7551a9a98f33b7ea16730038613cf45bb8
+
 };
 
 #endif
