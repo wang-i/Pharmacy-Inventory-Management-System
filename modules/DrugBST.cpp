@@ -75,6 +75,7 @@ Drug *DrugBST::deleteByName(Drug *node, const string &name)
             node->id = succ->id;
             node->quantity = succ->quantity;
             node->expiryDate = succ->expiryDate;
+            node->price = succ->price;
 
             node->right = deleteByName(node->right, succ->name);
         }
@@ -124,9 +125,13 @@ void DrugBST::inorder(Drug *node)
     if (!node)
         return;
     inorder(node->left);
-    cout << node->name << ", " << node->id << ", " << node->quantity << ", " << node->expiryDate<< ", $" << node->price;
+    cout << "Name: " << node->name
+         << " | ID: " << node->id
+         << " | Qty: " << node->quantity
+         << " | Expiry: " << node->expiryDate
+         << " | Price: $"  << node->price;
     if (node->quantity < 5)
-    cout << "  <-- RESTOCK NEEDED";
+        cout << "  <-- RESTOCK NEEDED";
     cout << endl;
     inorder(node->right);
 }
@@ -136,11 +141,8 @@ void DrugBST::inorderToFile(Drug *node, ofstream &out)
     if (!node)
         return;
     inorderToFile(node->left, out);
-    out << node->name << " "
-        << node->id << " "
-        << node->quantity << " "
-        << node->expiryDate << " "
-        << node->price<< "\n";
+// CSV: name,id,quantity,expiry,price
+    out << node->name << "," << node->id << "," << node->quantity << "," << node->expiryDate << "," << node->price << "\n";
     inorderToFile(node->right, out);
 }
 // to import before starting the next step
