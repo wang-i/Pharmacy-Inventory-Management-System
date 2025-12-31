@@ -130,7 +130,7 @@ void PatientQueue::exportToFile(const string &filename) const
 int PatientQueue::getPatientCount() const {
     int count = 0;
     Patient *current = front;
-    while (current != nullptr) {
+    while (current) {
         ++count;
         current = current->next;
     }

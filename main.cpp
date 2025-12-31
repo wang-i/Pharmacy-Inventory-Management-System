@@ -21,7 +21,7 @@ void welcome(DrugBST &dr, PatientQueue &pq)
         cout << "9. Dequeue Patient" << endl;
         cout << "10. Display Patients" << endl;
         cout << "11. Export Patients to File" << endl;
-
+        cout << "12. Show total number of patients" << endl;
         cout << "0. Exit" << endl;
         cout << "Choose an option: ";
         int choice;
@@ -32,6 +32,7 @@ void welcome(DrugBST &dr, PatientQueue &pq)
         {
             string name, expiry;
             int id, qty;
+            double price;
             cout << "Enter drug name: ";
             cin.ignore();
             getline(cin, name);
@@ -39,9 +40,11 @@ void welcome(DrugBST &dr, PatientQueue &pq)
             cin >> id;
             cout << "Enter quantity: ";
             cin >> qty;
+            cout << "Enter price per unit: ";
+            cin >> price;
             cout << "Enter expiry date (YYYY-MM-DD): ";
             cin >> expiry;
-            dr.addDrug(name, id, qty, expiry);
+            dr.addDrug(name, id, qty, expiry, price);
             break;
         }
         case 2:
@@ -108,6 +111,10 @@ void welcome(DrugBST &dr, PatientQueue &pq)
             pq.exportToFile(filename);
             break;
         }
+        case 12:
+           cout << "Total patients: " << pq.getPatientCount() << endl;
+           break;
+
         case 0:
             running = false;
             break;
